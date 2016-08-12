@@ -1,4 +1,4 @@
-# \<t-activity-price-translator\>
+# \<t-price-translator\>
 
 
 
