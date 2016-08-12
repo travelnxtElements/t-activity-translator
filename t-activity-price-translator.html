@@ -1,0 +1,55 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../t-behavior/t-translator-behavior.html">
+
+<!--
+    <h3>Details:</h3>
+
+        `t-activity-price-translator` is a translator component which translates activity option details view data into `t-shopping-cart-add-item-api` request.
+
+    <h3>Input Property Format:</h3>
+
+        var input = null
+
+    <h3>Example:</h3>
+
+        <t-activity-price-translator
+            input="[[input]]"
+            output="{{output}}"
+            on-output-changed="_outputChanged"
+        </t-activity-price-translator>
+
+    @demo demo/index.html
+-->
+
+<dom-module id="t-activity-price-translator">
+
+    <template></template>
+
+    <script>
+
+        (function () {
+
+            'use strict'
+
+            Polymer({
+
+                is: 't-activity-price-translator',
+
+                behaviors: [
+                    TravelNxt.Behaviors.TranslatorBehavior
+                ],
+
+                properties: {
+
+                },
+
+                /**
+                 * This is the observer function for `input` property.
+                 * It overrides behavior method.
+                 */
+                __translate: function () {
+                },
+            });            
+        })()
+    </script>    
+</dom-module>
