@@ -21,7 +21,7 @@ Example:
             'use strict'
 
 			Polymer({
-				is: 't-activity-book-translator'
+				is: 't-activity-book-translator',
 
                 behaviors: [
                     TravelNxt.Behaviors.TranslatorBehavior
@@ -64,13 +64,13 @@ Example:
 	            /*
 	             * <p>Translator</p>
 	             */
-	            _buildBookingRequest: function(data) {
+	            _buildBookingRequest: function() {
 
-	                this._getPassengers(data.passengerInfo);
+	                this._getPassengers(this.input.passengerInfo);
 
-	                this._getPaymentInfo(data.payment);
+	                this._getPaymentInfo(this.input.payment);
 
-	                this._getPaymentBreakup(data.itinerary.fare.components, data.itinerary.isPostPaid);
+	                this._getPaymentBreakup(this.input.itinerary.fare.components, this.input.itinerary.isPostPaid);
 	            },
 
 	            /*
