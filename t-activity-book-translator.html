@@ -70,7 +70,7 @@ Example:
 
 	                this._getPaymentInfo(this.input.payment);
 
-	                this._getPaymentBreakup(this.input.itinerary.fare.components, this.input.itinerary.isPostPaid);
+	                this._getPaymentBreakup(this.input.itinerary.fare.components);
 	            },
 
 	            /*
@@ -116,19 +116,19 @@ Example:
 	            /*
 	             * <p>Build payment breakup data</p>
 	             */
-	            _getPaymentBreakup: function (components, isPostPaid) {
-	              var totalFare = components.find(function (component, index, array) {
-	                        return component.type.toLowerCase() == 'totalfare';
-	                    });
+	            _getPaymentBreakup: function (components) {
+					var totalFare = components.find(function (component, index, array) {
+					        return component.type.toLowerCase() == 'totalfare';
+					    });
 
-	              if (totalFare) {
-	                  this._request.inventoriesInfo[0].paymentBreakups.push({
-	                      "amount": totalFare.money,
-	                      "paymentId": 0,
-	                      "paymentType": isPostPaid ? 'PostPaid' : "creditCard",
-	                      "passengerId": null
-	                  });
-	              }
+					if (totalFare) {
+					  this._request.inventoriesInfo[0].paymentBreakups.push({
+					      amount: totalFare.money,
+					      paymentId: 0,
+					      paymentType: 'creditCard',
+					      passengerId: null
+					  });
+					}
 	            }
 			});
         })();
