@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../t-behavior/t-translator-behavior.html">
+<link rel="import" href="../t-shared-lib/t-date-behavior.html">
 <!--
 A comment describing this element
 
@@ -24,7 +25,8 @@ Example:
 				is: 't-activity-book-translator',
 
                 behaviors: [
-                    TravelNxt.Behaviors.TranslatorBehavior
+                    TravelNxt.Behaviors.TranslatorBehavior,
+                    TravelNxt.Behaviors.DateBehavior
                 ],
 
                 properties: {
@@ -87,13 +89,18 @@ Example:
 
 	                    var passenger = passengerInfo.passengerList[i];
 
+	                    // Building date as per api format
+	                    var dt = new Date();
+	                    var dateComps = this._getDateComponents(new Date((dt.getFullYear() - +passenger.age), dt.getMonth(), dt.getDate()));
+	                    var buildDate = dateComps.shortDay + ', ' + dateComps.date + ' ' + dateComps.shortMonth + ',' + dateComps.year;
+
 	                    this._request.passengers.push({
 	                        firstName: passenger.firstName,
 	                        lastName: passenger.lastName,
 	                        title: passenger.title,
 	                        phoneNumber: passengerInfo.phone,
 	                        dateOfBirth: { 
-	                            date: "Tue, 04 Sep,1990",
+	                            date: buildDate,
 	                            time: "12:46 PM"
 	                        },
 	                        emailAddress: passengerInfo.email,

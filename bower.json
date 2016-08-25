@@ -3,7 +3,8 @@
   "main": "t-activity-price-translator.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
-    "t-behavior": "travelnxtelements/t-behavior#master"
+    "t-behavior": "travelnxtelements/t-behavior#master",
+    "t-shared-lib": "travelnxtElements/t-shared-lib#^1.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
